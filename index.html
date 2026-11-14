@@ -1,40 +1,54 @@
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>BABA - Bioinformatics Algorithms</title>
-  <script src="https://cjrtnc.leaningtech.com/5.0/loader.js"></script>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
-    }
-    #status {
-      margin: 12px 0;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BABA - Bioinformatics Algorithms</title>
+
+    <!-- Load CheerpJ -->
+    <script src="https://cjrtnc.leaningtech.com/5.0/loader.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        #status {
+            margin: 12px 0;
+        }
+    </style>
 </head>
+
 <body>
 
-  <h1>BABA - Basic Algorithms of Bioinformatics</h1>
-  <div id="status">Loading Java runtime...</div>
+    <h1>BABA - Basic Algorithms of Bioinformatics</h1>
 
-  <script type="module">
-    const status = document.getElementById("status");
+    <p id="status">Loading Java runtime...</p>
 
-    try {
-      await cheerpjInit();
-      cheerpjCreateDisplay(1000, 700);
-      status.textContent = "Starting BABA...";
-      await cheerpjRunJar("/app/baba.jar");
-      status.textContent = "BABA has been started.";
-    } catch (error) {
-      status.textContent =
-        "Could not start BABA: " + (error?.message || error);
-      console.error(error);
-    }
-  </script>
+    <script type="module">
+        const status = document.getElementById("status");
+
+        try {
+            await cheerpjInit();
+
+            cheerpjCreateDisplay(1000, 700);
+
+            status.textContent = "Starting BABA...";
+
+            await cheerpjRunJar("/app/baba.jar");
+
+            status.textContent = "BABA has been started.";
+
+        } catch (error) {
+            status.textContent =
+                "Could not start BABA: " + error.message;
+
+            console.error(error);
+        }
+    </script>
 
 </body>
 </html>
