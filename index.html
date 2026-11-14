@@ -1,30 +1,40 @@
-<!doctype html>
-<html lang="en">
+
+<!DOCTYPE html>
+<html>
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
   <title>BABA - Bioinformatics Algorithms</title>
   <script src="https://cjrtnc.leaningtech.com/5.0/loader.js"></script>
   <style>
-    body { font-family: Arial, sans-serif; margin: 20px; }
-    #status { margin: 12px 0; }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    #status {
+      margin: 12px 0;
+    }
   </style>
 </head>
 <body>
+
   <h1>BABA - Basic Algorithms of Bioinformatics</h1>
-  <p id="status">Loading Java runtime…</p>
+  <div id="status">Loading Java runtime...</div>
+
   <script type="module">
     const status = document.getElementById("status");
+
     try {
       await cheerpjInit();
       cheerpjCreateDisplay(1000, 700);
-      status.textContent = "Starting BABA…";
+      status.textContent = "Starting BABA...";
       await cheerpjRunJar("/app/baba.jar");
       status.textContent = "BABA has been started.";
     } catch (error) {
-      status.textContent = "Could not start BABA: " + (error?.message || error);
+      status.textContent =
+        "Could not start BABA: " + (error?.message || error);
       console.error(error);
     }
   </script>
+
 </body>
 </html>
